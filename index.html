@@ -1,0 +1,23 @@
+<html ng-app="i18n">
+    <meta charset="UTF-8">
+    <title>Cadastro de modelos de equipamento</title>
+    <script src="/node_modules/angular/angular.min.js" ></script>
+    <script src="/node_modules/angular-route/angular-route.min.js" ></script>
+    <script src="/js/app.js" ></script>
+    <script src="/js/services/languageService.js" ></script>
+    <script src="/js/services/modeloEquipamentoService.js" ></script>
+    <script src="/js/services/localeService.js"></script>
+    <script src="/js/services/i18nService.js"></script>
+    <script src="/js/controllers/ListaModeloEquipamento.js" ></script>
+    <script src="/js/controllers/LocaleSelect.js"></script>
+    <script src="/js/components/i18nInput/i18nInput.js"></script>
+    <script src="/js/config/constants.js"></script>
+    <script src="/js/config/routeConfig.js"></script>
+    <body>
+        <div ng-controller="LocaleSelect as $ctrl">
+            <label for="localeSelect">{{getWord('selecione')}}</label>
+            <select ng-options="locale as locale.descricao for locale in locales track by locale.lcid" ng-model="options.locale" ng-change="onLocaleChange()"></select>
+        </div>
+        <div ng-view></div>
+    </body>
+</html>

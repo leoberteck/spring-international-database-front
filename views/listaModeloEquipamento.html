@@ -1,0 +1,54 @@
+<div>
+    <table>
+        <tr>
+            <th>{{getWord('id')}}</th>
+            <th>{{getWord('espacamento')}}</th>
+            <th>{{getWord('icone')}}</th>
+            <th>{{getWord('largura')}}</th>
+            <th>{{getWord('comprimento')}}</th>
+            <th>{{getWord('capacidade')}}</th>
+            <th>{{getWord('descricao')}}</th>
+        </tr>
+        <tr ng-repeat="modelo in modelos track by $index" ng-style="{ 'background-color' : modelo.selected ? 'gray' : 'white' } " ng-click="onModeloClick(modelo)" >
+            <td>{{modelo.cdModeloEquipamento}}</td>
+            <td>{{modelo.vlEspacamento}}</td>
+            <td>{{modelo.cdIcone}}</td>
+            <td>{{modelo.vlLargura}}</td>
+            <td>{{modelo.vlComprimento}}</td>
+            <td>{{modelo.vlCapacidade}}</td>
+            <td>{{modelo.descModeloEquipamento}}</td>
+        </tr>
+    </table>
+    <div >
+        <form>
+            <div>
+                <label for="espacamento">{{getWord('espacamento')}}</label>
+                <input name="espacamento" id="field_espacamento" ng-model="selected.vlEspacamento" />
+            </div>
+            <div>
+                <label for="icone">{{getWord('icone')}}</label>
+                <input name="icone" id="field_icone" ng-model="selected.cdIcone"/>
+            </div>
+                <label for="largura">{{getWord('largura')}}</label>
+                <input name="largura" id="field_largura" ng-model="selected.vlLargura"/>
+            <div>
+                <label for="comprimento">{{getWord('comprimento')}}</label>
+                <input name="comprimento" id="field_comprimento" ng-model="selected.vlComprimento"/>
+            </div>
+                <label for="capacidade">{{getWord('capacidade')}}</label>
+                <input name="capacidade" id="field_capacidade" ng-model="selected.vlCapacidade"/>
+            <div>
+                <label for="descricao">{{getWord('descricao')}}</label>
+                <i18n-input ng-id="field_descricao"
+                     name="descricao" 
+                     ng-model="selected.descModeloEquipamento"
+                     ng-i18n-obj="selected.traducao"
+                     ng-placeholder=""
+                     ng-locales="locales"></i18n-input>
+            </div>
+            <div>
+                <button type="button" ng-click="onSaveClick(selected)">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<span>
+    <div>
+        <span 
+            ng-repeat="locale in $ctrl.ngLocales track by $index" 
+            ng-style="{ 'background-color' : locale.selected ? 'gray' : 'white' } " 
+            data-id="{{locale.lcid}}" 
+            ng-click="onLocaleClick(locale)">{{locale.code}}</span>
+        <span ><button>+</button></span>
+    </div>
+    <div>
+        <label>{{$ctrl.label}}</label>
+        <input id="{{$ctrl.ngId}}"
+            type="text" 
+            ng-model="$ctrl.ngI18nObj.traducaoList[selectedIndex].descValor"
+            i18n-obj="$ctrl.ngI18nObj.traducaoList[selectedIndex].traducao"
+            placeholder="{{$ctrl.ngPlaceholder}}" >
+    </div>
+</span>
